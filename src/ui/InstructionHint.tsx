@@ -21,7 +21,7 @@ export default function InstructionHint() {
           color: '#1f1f1f',
         }}
       >
-        Click objects in the room to explore projects, books, coursework, and
+        Click and drag to move around. Click objects in the room to explore projects, books, coursework, and
         dance videos.
       </p>
     </div>
