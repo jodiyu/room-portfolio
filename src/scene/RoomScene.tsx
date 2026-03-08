@@ -1,9 +1,11 @@
 import InteractiveBox from './InteractiveBox'
+import type { ActiveSection } from '../App'
 
-export default function RoomScene() {
-    function handleObjectClick(section: string) {
-    console.log(section)
-  }
+type RoomSceneProps = {
+  onSectionSelect: (section: Exclude<ActiveSection, null>) => void
+}
+
+export default function RoomScene({ onSectionSelect }: RoomSceneProps) {
   return (
     <>
       <ambientLight intensity={0.8} />
@@ -57,7 +59,7 @@ export default function RoomScene() {
         size={[1.2, 0.8, 0.1]}
         baseColor="#222222"
         hoverColor="#555555"
-        onClick={() => handleObjectClick('projects')}
+        onClick={() => onSectionSelect('projects')}
       />
 
       {/* Bookshelf */}
@@ -66,7 +68,7 @@ export default function RoomScene() {
         size={[0.9, 2.8, 1.1]}
         baseColor="#8a6742"
         hoverColor="#a07a50"
-        onClick={() => handleObjectClick('reading-list')}
+        onClick={() => onSectionSelect('reading-list')}
       />
 
       {/* Left wall window */}
@@ -93,7 +95,7 @@ export default function RoomScene() {
         size={[1.4, 1, 0.05]}
         baseColor="#f5f0d8"
         hoverColor="#fff8df"
-        onClick={() => handleObjectClick('resume')}
+        onClick={() => onSectionSelect('resume')}
       />
 
       {/* Poster */}
@@ -114,7 +116,7 @@ export default function RoomScene() {
         size={[0.8, 0.9, 0.5]}
         baseColor="#b3476b"
         hoverColor="#d05a83"
-        onClick={() => handleObjectClick('dance-videos')}
+        onClick={() => onSectionSelect('dance-videos')}
       />
 
       {/* Door */}
@@ -122,7 +124,6 @@ export default function RoomScene() {
         <planeGeometry args={[1.8, 3.6]} />
         <meshStandardMaterial color="#5a3a28" />
       </mesh>
-
     </>
   )
 }
