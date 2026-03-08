@@ -93,7 +93,7 @@ export default function RoomScene({ onSectionSelect }: RoomSceneProps) {
       <InteractiveBox
         position={[3.2, 1.5, -5.95]}
         size={[1.4, 1, 0.05]}
-        baseColor="#f5f0d8"
+        baseColor="#d2cdb6"
         hoverColor="#fff8df"
         onClick={() => onSectionSelect('resume')}
       />

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import RoomScene from './scene/RoomScene'
 import Overlay from './ui/Overlay'
+import InstructionHint from './ui/InstructionHint'
 
 export type ActiveSection =
   | null
@@ -18,6 +19,8 @@ export default function App() {
       <Canvas camera={{ position: [0, 1.6, 5], fov: 60 }}>
         <RoomScene onSectionSelect={setActiveSection} />
       </Canvas>
+
+      <InstructionHint />
 
       <Overlay
         activeSection={activeSection}
