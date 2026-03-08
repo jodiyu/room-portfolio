@@ -1,4 +1,9 @@
+import InteractiveBox from './InteractiveBox'
+
 export default function RoomScene() {
+    function handleObjectClick(section: string) {
+    console.log(section)
+  }
   return (
     <>
       <ambientLight intensity={0.8} />
@@ -47,16 +52,22 @@ export default function RoomScene() {
       </mesh>
 
       {/* Computer monitor on desk */}
-      <mesh position={[0, 0.8, -3.4]}>
-        <boxGeometry args={[1.2, 0.8, 0.1]} />
-        <meshStandardMaterial color="#222222" />
-      </mesh>
+      <InteractiveBox
+        position={[0, 0.8, -3.4]}
+        size={[1.2, 0.8, 0.1]}
+        baseColor="#222222"
+        hoverColor="#555555"
+        onClick={() => handleObjectClick('projects')}
+      />
 
       {/* Bookshelf */}
-      <mesh position={[-5.3, 0.2, 0]}>
-        <boxGeometry args={[0.9, 2.8, 1.1]} />
-        <meshStandardMaterial color="#8a6742" />
-      </mesh>
+      <InteractiveBox
+        position={[-5.3, 0.2, 0]}
+        size={[0.9, 2.8, 1.1]}
+        baseColor="#8a6742"
+        hoverColor="#a07a50"
+        onClick={() => handleObjectClick('reading-list')}
+      />
 
       {/* Left wall window */}
       <mesh position={[-5.95, 1, -3]} rotation={[0, Math.PI / 2, 0]}>
@@ -77,12 +88,15 @@ export default function RoomScene() {
       </mesh>
 
       {/* Diploma */}
-      <mesh position={[3.2, 1.5, -5.95]}>
-        <boxGeometry args={[1.4, 1, 0.05]} />
-        <meshStandardMaterial color="#f5f0d8" />
-      </mesh>
+      <InteractiveBox
+        position={[3.2, 1.5, -5.95]}
+        size={[1.4, 1, 0.05]}
+        baseColor="#f5f0d8"
+        hoverColor="#fff8df"
+        onClick={() => handleObjectClick('resume')}
+      />
 
-      {/* Dance poster */}
+      {/* Poster */}
       <mesh position={[-2.4, 1.4, -5.95]}>
         <boxGeometry args={[1.4, 2, 0.05]} />
         <meshStandardMaterial color="#b3476b" />
@@ -95,10 +109,13 @@ export default function RoomScene() {
       </mesh>
 
       {/* Dance bag */}
-      <mesh position={[-5.2, -0.55, -5.2]}>
-        <boxGeometry args={[0.8, 0.9, 0.5]} />
-        <meshStandardMaterial color="#4a3060" />
-      </mesh>
+      <InteractiveBox
+        position={[-5.2, -0.55, -5.2]}
+        size={[0.8, 0.9, 0.5]}
+        baseColor="#b3476b"
+        hoverColor="#d05a83"
+        onClick={() => handleObjectClick('dance-videos')}
+      />
 
       {/* Door */}
       <mesh position={[0, 0, 5.95]} rotation={[0, Math.PI, 0]}>
