@@ -23,9 +23,12 @@ export default function RoomScene({ onSectionSelect }: RoomSceneProps) {
         onReadingListClick={() => onSectionSelect('reading-list')}
       />
 
-      <WallDecor onResumeClick={() => onSectionSelect('resume')} />
+      <WallDecor 
+        onResumeClick={() => onSectionSelect('resume')} 
+        onDanceVideosClick={() => onSectionSelect('dance-videos')}
+      />
 
-      <RoomProps onDanceVideosClick={() => onSectionSelect('dance-videos')} />
+      <RoomProps />
     </>
   )
 }

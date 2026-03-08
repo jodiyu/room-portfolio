@@ -37,18 +37,6 @@ export default function RoomShell() {
         <meshStandardMaterial color="#d9d4cc" />
       </mesh>
 
-      {/* Left wall window */}
-      <mesh position={[-5.95, 1, -3]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[3, 2]} />
-        <meshStandardMaterial color="#87ceeb" />
-      </mesh>
-
-      {/* Left wall window */}
-      <mesh position={[-5.95, 1, 3]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[3, 2]} />
-        <meshStandardMaterial color="#87ceeb" />
-      </mesh>
-
       {/* Door */}
       <mesh position={[0, 0, 5.95]} rotation={[0, Math.PI, 0]}>
         <planeGeometry args={[1.8, 3.6]} />
