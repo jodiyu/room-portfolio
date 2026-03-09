@@ -4,6 +4,7 @@ import {
   projects,
   readingList,
   resumeItems,
+  speechVideos,
 } from '../content/portfolioContent'
 
 type OverlayProps = {
@@ -135,6 +136,13 @@ function getSectionMeta(activeSection: Exclude<ActiveSection, null>) {
         description:
           'Performance and rehearsal clips connected of my dance work.',
       }
+    case 'speech-videos':
+      return {
+        kicker: 'Business Suit',
+        title: 'Presentations',
+        description: 
+          'Speeches from math talks and innovation competitions I presented at.'
+      }
   }
 }
 
@@ -185,6 +193,19 @@ function renderContent(activeSection: Exclude<ActiveSection, null>) {
 
     case 'dance-videos':
       return danceVideos.map((video) => (
+        <div key={video.title} style={cardStyle}>
+          <h3 style={itemTitleStyle}>{video.title}</h3>
+          {video.description && <p style={bodyTextStyle}>{video.description}</p>}
+          {video.link && (
+            <a href={video.link} style={linkStyle}>
+              Watch
+            </a>
+          )}
+        </div>
+      ))
+
+      case 'speech-videos':
+        return speechVideos.map((video) => (
         <div key={video.title} style={cardStyle}>
           <h3 style={itemTitleStyle}>{video.title}</h3>
           {video.description && <p style={bodyTextStyle}>{video.description}</p>}

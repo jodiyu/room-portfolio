@@ -24,6 +24,12 @@ export type DanceVideoItem = {
   link?: string
 }
 
+export type SpeechVideoItem = {
+  title: string
+  description?: string
+  link?: string
+}
+
 export const projects: ProjectItem[] = [
   {
     title: 'Missed Connections',
@@ -158,5 +164,18 @@ export const danceVideos: DanceVideoItem[] = [
     title: 'Performance Excerpt',
     description: 'A piece I choreographed for BU Edge Dance Club\'s annual show.',
     link: '#',
+  },
+]
+
+export const speechVideos: SpeechVideoItem[] = [
+  {
+    title: '$12.5k Student Wellbeing Innovation Competition',
+    description: 'Won first place for MissedConnections, a social app aimed at finding connections on campus. Watch a video taken from finals.',
+    link: 'https://www.youtube.com/watch?v=kmtSS2ib24E&t=4s',
+  },
+  {
+    title: 'Directed Reading Research in Topology',
+    description: 'Mathematical study on classification of plane tilings via topological equivalence. Watch a practice video of the speech presented in front of math graduate students and peers.',
+    link: 'https://drive.google.com/file/d/1d-LlgirlAWp-9ZKwsIty9MyNWeFUT284/view?usp=sharing',
   },
 ]

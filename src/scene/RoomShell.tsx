@@ -4,7 +4,7 @@ export default function RoomShell() {
       {/* Floor */}
       <mesh position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[12, 12]} />
-        <meshStandardMaterial color="#7b5e57" />
+        <meshStandardMaterial color="#6a615f" />
       </mesh>
 
       {/* Ceiling */}

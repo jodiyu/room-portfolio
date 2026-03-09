@@ -31,7 +31,9 @@ export default function RoomScene({ onSectionSelect, weather }: RoomSceneProps) 
         weather={weather}
       />
 
-      <RoomProps />
+      <RoomProps 
+        onSpeechesClick={() => onSectionSelect('speech-videos')}
+      />
     </>
   )
 }

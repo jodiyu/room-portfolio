@@ -50,7 +50,7 @@ export default function WallDecor({
           <circleGeometry args={[0.08, 16]} />
           <meshStandardMaterial color="#c9a83e" metalness={0.6} roughness={0.3} />
         </mesh>
-        {/* Text lines (decorative) */}
+        {/* Text lines */}
         {[-0.15, -0.05, 0.05, 0.12].map((y, i) => (
           <mesh key={i} position={[0, y, 0.055]}>
             <boxGeometry args={[i === 1 ? 0.7 : 0.5, 0.02, 0.001]} />
@@ -76,7 +76,7 @@ export default function WallDecor({
         </mesh>
       </group>
 
-      {/* Left wall window (back) */}
+      {/* Left wall window */}
       <group position={[-5.95, 1, -3]} rotation={[0, Math.PI / 2, 0]}>
         <WindowScene weather={weather} />
         {/* Outer frame - top */}
@@ -106,7 +106,7 @@ export default function WallDecor({
         </mesh>
       </group>
 
-      {/* Left wall window (front) */}
+      {/* Left wall window */}
       <group position={[-5.95, 1, 3]} rotation={[0, Math.PI / 2, 0]}>
         <WindowScene weather={weather} />
         {/* Outer frame - top */}

@@ -1,6 +1,12 @@
+import InteractiveBox from './InteractiveBox'
 
+type RoomProps = {
+  onSpeechesClick: () => void
+}
 
-export default function RoomProps() {
+export default function RoomProps({
+  onSpeechesClick
+}: RoomProps) {
   return (
     <>
       {/* Bed */}
@@ -32,6 +38,52 @@ export default function RoomProps() {
         </mesh>
       </group>
 
+      {/* Simple suit hanging from right wall */}
+      <InteractiveBox
+        position={[4.2, 1, 4]} 
+        size={[1.2, 1.3, 0.005]}
+        rotation={[0, -Math.PI / 2, 0]}
+        baseColor="#95bd8e"
+        hoverColor="#bee6b8"
+        onClick={onSpeechesClick}
+      />
+      <group position={[4.2, 0, 4]} rotation={[0, -Math.PI / 2, 0]}>
+        {/* Hanger hook */}
+        <mesh position={[0, 1.52, 0.1]}>
+          <torusGeometry args={[0.06, 0.012, 8, 16, Math.PI]} />
+          <meshStandardMaterial color="#c0c0c0" metalness={0.5} roughness={0.4} />
+        </mesh>
+        {/* Hanger bar */}
+        <mesh position={[0, 1.5, 0.1]}>
+          <boxGeometry args={[0.28, 0.03, 0.03]} />
+          <meshStandardMaterial color="#8b8b8b" />
+        </mesh>
+        {/* Jacket body */}
+        <mesh position={[0, 1.2, 0.1]}>
+          <boxGeometry args={[0.36, 0.55, 0.16]} />
+          <meshStandardMaterial color="#1f2a44" />
+        </mesh>
+        {/* White shirt (centered, slightly in front) */}
+        <mesh position={[0, 1.2, 0.19]}>
+          <boxGeometry args={[0.08, 0.48, 0.04]} />
+          <meshStandardMaterial color="#f5f5f5" />
+        </mesh>
+        {/* Left sleeve */}
+        <mesh position={[-0.23, 1.26, 0.1]} rotation={[0, 0, -0.35]}>
+          <boxGeometry args={[0.12, 0.42, 0.14]} />
+          <meshStandardMaterial color="#1f2a44" />
+        </mesh>
+        {/* Right sleeve */}
+        <mesh position={[0.23, 1.26, 0.1]} rotation={[0, 0, 0.35]}>
+          <boxGeometry args={[0.12, 0.42, 0.14]} />
+          <meshStandardMaterial color="#1f2a44" />
+        </mesh>
+        {/* Pants */}
+        <mesh position={[0, 0.83, 0.1]}>
+          <boxGeometry args={[0.26, 0.45, 0.12]} />
+          <meshStandardMaterial color="#1f2a44" />
+        </mesh>
+      </group>
     </>
   )
 }

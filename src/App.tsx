@@ -13,6 +13,7 @@ export type ActiveSection =
   | 'reading-list'
   | 'resume'
   | 'dance-videos'
+  | 'speech-videos'
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<ActiveSection>(null)

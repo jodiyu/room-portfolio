@@ -1,6 +1,7 @@
 import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import InteractiveBox from './InteractiveBox'
 
 export type WeatherMode = 'clear' | 'rain' | 'snow' | 'sunset' | 'night'
 
@@ -25,7 +26,7 @@ function RainParticles() {
   const dummy = useMemo(() => new THREE.Object3D(), [])
 
   const offsets = useMemo(() => {
-    const arr = new Float32Array(PARTICLE_COUNT * 3)
+    const arr = new Float32Array(PARTICLE_COUNT)
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       arr[i * 3] = (Math.random() - 0.5) * WINDOW_W
       arr[i * 3 + 1] = (Math.random() - 0.5) * WINDOW_H
@@ -132,6 +133,9 @@ function Stars() {
 export default function WindowScene({ weather }: WindowSceneProps) {
   return (
     <>
+    {/* <InteractiveBox>
+        position={[0, 0, 0]}
+    </InteractiveBox> */}
       {/* Sky background */}
       <mesh position={[0, 0, 0]}>
         <planeGeometry args={[WINDOW_W, WINDOW_H]} />
