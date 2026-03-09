@@ -1,13 +1,17 @@
 import InteractiveBox from './InteractiveBox'
+import WindowScene from './WindowScene'
+import type { WeatherMode } from './WindowScene'
 
 type WallDecorProps = {
   onResumeClick: () => void
   onDanceVideosClick: () => void
+  weather: WeatherMode
 }
 
 export default function WallDecor({
   onResumeClick,
   onDanceVideosClick,
+  weather,
 }: WallDecorProps) {
   return (
     <>
@@ -94,11 +98,7 @@ export default function WallDecor({
 
       {/* Left wall window (back) */}
       <group position={[-5.95, 1, -3]} rotation={[0, Math.PI / 2, 0]}>
-        {/* Sky / glass pane */}
-        <mesh position={[0, 0, 0]}>
-          <planeGeometry args={[2.8, 1.8]} />
-          <meshStandardMaterial color="#87ceeb" />
-        </mesh>
+        <WindowScene weather={weather} />
         {/* Outer frame - top */}
         <mesh position={[0, 0.95, 0.01]}>
           <boxGeometry args={[3, 0.1, 0.06]} />
@@ -128,11 +128,7 @@ export default function WallDecor({
 
       {/* Left wall window (front) */}
       <group position={[-5.95, 1, 3]} rotation={[0, Math.PI / 2, 0]}>
-        {/* Sky / glass pane */}
-        <mesh position={[0, 0, 0]}>
-          <planeGeometry args={[2.8, 1.8]} />
-          <meshStandardMaterial color="#87ceeb" />
-        </mesh>
+        <WindowScene weather={weather} />
         {/* Outer frame - top */}
         <mesh position={[0, 0.95, 0.01]}>
           <boxGeometry args={[3, 0.1, 0.06]} />

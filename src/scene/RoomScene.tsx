@@ -1,4 +1,5 @@
 import type { ActiveSection } from '../App'
+import type { WeatherMode } from './WindowScene'
 import BookshelfArea from './BookshelfArea'
 import DeskArea from './DeskArea'
 import RoomProps from './RoomProps'
@@ -7,9 +8,10 @@ import WallDecor from './WallDecor'
 
 type RoomSceneProps = {
   onSectionSelect: (section: Exclude<ActiveSection, null>) => void
+  weather: WeatherMode
 }
 
-export default function RoomScene({ onSectionSelect }: RoomSceneProps) {
+export default function RoomScene({ onSectionSelect, weather }: RoomSceneProps) {
   return (
     <>
       <ambientLight intensity={0.8} />
@@ -26,6 +28,7 @@ export default function RoomScene({ onSectionSelect }: RoomSceneProps) {
       <WallDecor 
         onResumeClick={() => onSectionSelect('resume')} 
         onDanceVideosClick={() => onSectionSelect('dance-videos')}
+        weather={weather}
       />
 
       <RoomProps />
