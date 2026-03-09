@@ -114,7 +114,7 @@ export const resumeItems: ResumeItem[] = [
   {
     company: 'CS351/CS460',
     title: 'Distributed/Database Systems',
-    subtitle: 'Distributed computing and concurrency control.',
+    subtitle: 'Distributed computing and concurrency control in Golang.',
   },
   {
     company: 'MA581/MA582',
@@ -124,8 +124,8 @@ export const resumeItems: ResumeItem[] = [
   {
     company: 'CS210',
     title: 'Computer Systems',
-    subtitle: 'Hardware fundamentals and systems programming in C.',
-  },
+    subtitle: 'Hardware fundamentals and systems programming in Assembly and C.',
+  }
 ]
 
 export const danceVideos: DanceVideoItem[] = [

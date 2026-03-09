@@ -1,3 +1,4 @@
+import { useGLTF } from '@react-three/drei'
 import InteractiveBox from './InteractiveBox'
 
 type DeskAreaProps = {
@@ -5,37 +6,13 @@ type DeskAreaProps = {
 }
 
 export default function DeskArea({ onProjectsClick }: DeskAreaProps) {
+  const { scene: deskScene } = useGLTF('/table_desk.glb')
+  const { scene: kbMouseScene } = useGLTF('/keyboard_mouse.glb')
+
   return (
     <>
-      {/* Desktop surface */}
-      <mesh position={[0, 0.15, -3.8]}>
-        <boxGeometry args={[3.2, 0.18, 1.4]} />
-        <meshStandardMaterial color="#6b4f3a" />
-      </mesh>
-
-      {/* Front left leg */}
-      <mesh position={[-1.35, -0.45, -3.25]}>
-        <boxGeometry args={[0.14, 1.2, 0.14]} />
-        <meshStandardMaterial color="#5b4332" />
-      </mesh>
-
-      {/* Front right leg */}
-      <mesh position={[1.35, -0.45, -3.25]}>
-        <boxGeometry args={[0.14, 1.2, 0.14]} />
-        <meshStandardMaterial color="#5b4332" />
-      </mesh>
-
-      {/* Back left leg */}
-      <mesh position={[-1.35, -0.45, -4.35]}>
-        <boxGeometry args={[0.14, 1.2, 0.14]} />
-        <meshStandardMaterial color="#5b4332" />
-      </mesh>
-
-      {/* Back right leg */}
-      <mesh position={[1.35, -0.45, -4.35]}>
-        <boxGeometry args={[0.14, 1.2, 0.14]} />
-        <meshStandardMaterial color="#5b4332" />
-      </mesh>
+      {/* Desk model */}
+      <primitive object={deskScene} position={[0, -1, -3.8]} scale={[2.6, 1.5, 2.9]} />
 
       {/* Monitor frame */}
       <mesh position={[0, 0.95, -3.95]}>
@@ -64,23 +41,8 @@ export default function DeskArea({ onProjectsClick }: DeskAreaProps) {
         <meshStandardMaterial color="#2d2d2d" />
       </mesh>
 
-      {/* Keyboard */}
-      <mesh position={[0, 0.27, -3.35]}>
-        <boxGeometry args={[1.05, 0.05, 0.34]} />
-        <meshStandardMaterial color="#d8d8d8" />
-      </mesh>
-
-      {/* Mouse pad */}
-      <mesh position={[0.95, 0.24, -3.38]}>
-        <boxGeometry args={[0.42, 0.02, 0.34]} />
-        <meshStandardMaterial color="#2a2a2a" />
-      </mesh>
-
-      {/* Mouse */}
-      <mesh position={[0.95, 0.28, -3.38]}>
-        <boxGeometry args={[0.12, 0.05, 0.18]} />
-        <meshStandardMaterial color="#cfcfcf" />
-      </mesh>
+      {/* Keyboard + Mouse model */}
+      <primitive object={kbMouseScene} position={[0, 0.1, -0.3]} scale={[2, 1, 1]} rotation={[0.4, 0, 0]} />
 
       {/* Small desk book/notebook */}
       <mesh position={[-0.95, 0.26, -3.42]}>
