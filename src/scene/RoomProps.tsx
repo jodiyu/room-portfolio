@@ -43,8 +43,8 @@ export default function RoomProps({
         position={[4.2, 1, 4]} 
         size={[1.2, 1.3, 0.005]}
         rotation={[0, -Math.PI / 2, 0]}
-        baseColor="#95bd8e"
-        hoverColor="#bee6b8"
+        baseColor="#8baf86"
+        hoverColor="#a3c39e"
         onClick={onSpeechesClick}
       />
       <group position={[4.2, 0, 4]} rotation={[0, -Math.PI / 2, 0]}>
