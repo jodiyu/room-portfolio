@@ -112,17 +112,17 @@ export const resumeItems: ResumeItem[] = [
     subtitle: 'Reviewed and graded algorithmic submissions throughout the semester, including proof correctness and asymptotic time/space complexity.',
   },
   {
-    company: 'course',
+    company: 'CS351/CS460',
     title: 'Distributed/Database Systems',
     subtitle: 'Distributed computing and concurrency control.',
   },
   {
-    company: 'course',
+    company: 'MA581/MA582',
     title: 'Advanced Probability and Statistics',
     subtitle: 'Proof-based mathematics.',
   },
   {
-    company: 'course',
+    company: 'CS210',
     title: 'Computer Systems',
     subtitle: 'Hardware fundamentals and systems programming in C.',
   },
