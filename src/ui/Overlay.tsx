@@ -119,7 +119,7 @@ function getSectionMeta(activeSection: Exclude<ActiveSection, null>) {
         kicker: 'Bookshelf',
         title: 'Reading List',
         description:
-          'Favorite books throughout the years.',
+          'Books that I am currently reading or just finished reading.',
       }
     case 'resume':
       return {
@@ -133,7 +133,7 @@ function getSectionMeta(activeSection: Exclude<ActiveSection, null>) {
         kicker: 'Dance Bag',
         title: 'Dance Videos',
         description:
-          'Performance and rehearsal clips connected to dance work.',
+          'Performance and rehearsal clips connected of my dance work.',
       }
   }
 }

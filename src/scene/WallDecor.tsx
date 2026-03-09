@@ -1,5 +1,8 @@
 import InteractiveBox from './InteractiveBox'
 import WindowScene from './WindowScene'
+import { useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three'
+import dancerImg from '../assets/dancer.png'
 import type { WeatherMode } from './WindowScene'
 
 type WallDecorProps = {
@@ -13,6 +16,8 @@ export default function WallDecor({
   onDanceVideosClick,
   weather,
 }: WallDecorProps) {
+  const dancerTexture = useLoader(TextureLoader, dancerImg)
+
   return (
     <>
       {/* === Diploma === */}
@@ -64,35 +69,10 @@ export default function WallDecor({
           hoverColor="#d76c90"
           onClick={onDanceVideosClick}
         />
-        {/* Dancer silhouette (torso) */}
-        <mesh position={[0, 0.15, 0.03]}>
-          <boxGeometry args={[0.3, 0.6, 0.01]} />
-          <meshStandardMaterial color="#2a1525" />
-        </mesh>
-        {/* Dancer head */}
-        <mesh position={[0, 0.55, 0.03]}>
-          <sphereGeometry args={[0.12, 16, 16]} />
-          <meshStandardMaterial color="#2a1525" />
-        </mesh>
-        {/* Dancer leg */}
-        <mesh position={[-0.2, -0.35, 0.03]} rotation={[0, 0, -0.4]}>
-          <boxGeometry args={[0.12, 0.6, 0.01]} />
-          <meshStandardMaterial color="#2a1525" />
-        </mesh>
-        {/* Dancer leg */}
-        <mesh position={[0.2, -0.35, 0.03]} rotation={[0, 0, 0.4]}>
-          <boxGeometry args={[0.12, 0.6, 0.01]} />
-          <meshStandardMaterial color="#2a1525" />
-        </mesh>
-        {/* Dancer arm */}
-        <mesh position={[-0.25, 0.35, 0.03]} rotation={[0, 0, 0.8]}>
-          <boxGeometry args={[0.08, 0.45, 0.01]} />
-          <meshStandardMaterial color="#2a1525" />
-        </mesh>
-        {/* Dancer arm */}
-        <mesh position={[0.2, 0.1, 0.03]} rotation={[0, 0, 0.5]}>
-          <boxGeometry args={[0.08, 0.45, 0.01]} />
-          <meshStandardMaterial color="#2a1525" />
+        {/* Dancer PNG image */}
+        <mesh position={[0, 0, 0.031]}>
+          <planeGeometry args={[1.5, 1.7]} />
+          <meshBasicMaterial map={dancerTexture} transparent />
         </mesh>
       </group>
 
