@@ -1,7 +1,6 @@
 import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import InteractiveBox from './InteractiveBox'
 
 export type WeatherMode = 'clear' | 'rain' | 'snow' | 'sunset' | 'night'
 
@@ -133,10 +132,6 @@ function Stars() {
 export default function WindowScene({ weather }: WindowSceneProps) {
   return (
     <>
-    {/* <InteractiveBox>
-        position={[0, 0, 0]}
-    </InteractiveBox> */}
-      {/* Sky background */}
       <mesh position={[0, 0, 0]}>
         <planeGeometry args={[WINDOW_W, WINDOW_H]} />
         <meshBasicMaterial color={SKY_COLORS[weather]} />

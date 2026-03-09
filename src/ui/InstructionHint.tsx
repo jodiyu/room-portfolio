@@ -6,7 +6,7 @@ export default function InstructionHint() {
         left: '24px',
         bottom: '24px',
         padding: '12px 14px',
-        background: 'rgba(255, 255, 255, 0.9)',
+        background: 'rgba(255, 255, 255, 0.5)',
         borderRadius: '12px',
         boxShadow: '0 8px 20px rgba(0, 0, 0, 0.16)',
         zIndex: 5,
@@ -21,7 +21,7 @@ export default function InstructionHint() {
           color: '#1f1f1f',
         }}
       >
-        Click and drag to move around. Click objects in the room to explore projects, books, coursework, and
+        Click and drag to move around. Click objects in the room to explore projects, experience, presentations, reading list, and
         dance videos.
       </p>
     </div>
