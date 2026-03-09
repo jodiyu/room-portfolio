@@ -119,7 +119,7 @@ function getSectionMeta(activeSection: Exclude<ActiveSection, null>) {
         kicker: 'Bookshelf',
         title: 'Reading List',
         description:
-          'Books that reflect aesthetic interests, vocabulary preferences, and structural influences.',
+          'Favorite books throughout the years.',
       }
     case 'resume':
       return {
@@ -172,7 +172,7 @@ function renderContent(activeSection: Exclude<ActiveSection, null>) {
         <div key={`${item.title}-${index}`} style={cardStyle}>
           <h3 style={itemTitleStyle}>{item.title}</h3>
           <p style={metaTextStyle}>
-            <strong>Type:</strong> {item.type}
+            <em>{item.company}</em>
           </p>
           {item.subtitle && <p style={bodyTextStyle}>{item.subtitle}</p>}
           {item.link && (

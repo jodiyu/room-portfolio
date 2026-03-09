@@ -12,7 +12,7 @@ export type ReadingItem = {
 }
 
 export type ResumeItem = {
-  type: 'course' | 'experience' | 'resume-link'
+  company: string
   title: string
   subtitle?: string
   link?: string
@@ -28,17 +28,26 @@ export const projects: ProjectItem[] = [
   {
     title: 'Missed Connections',
     description:
-      'A proximity-based social app concept for surfacing missed friendships and relationships based on shared interests.',
-    tech: ['React', 'TypeScript', 'App Design'],
+      'A proximity-based social app for finding your missed friendships based on shared interests and location based match making.',
+    tech: ['React Native', 'TypeScript', 'Django', 'PostgresSQL'],
+    link: 'https://missedconnections.tech/'
   },
   {
-    title: 'Book Recommendation Tool',
+    title: 'Unifi',
     description:
-      'A project for recommending books based on genre and user preferences.',
-    tech: ['Python', 'Recommendation Logic'],
+      'A collaborative music platform that enables users to listen to music together, dynamically curating a shared Spotify playlist that best reflects everyone’s unique tastes.',
+    tech: ['React', 'JavaScript', 'Next.js', 'MongoDB'],
+    link: 'https://www.unifi.boston/login/'
   },
   {
-    title: 'Portfolio Website',
+    title: 'Book Blog',
+    description:
+      'A project for keeping track of book recommendations and essays.',
+    tech: ['Next.js', 'React', 'Typescript'],
+    link: 'https://www.jodireads.blog/'
+  },
+  {
+    title: '3D Portfolio',
     description:
       'An interactive personal portfolio rendered as a 3D room with clickable objects.',
     tech: ['React', 'TypeScript', 'Three.js', 'React Three Fiber'],
@@ -47,64 +56,87 @@ export const projects: ProjectItem[] = [
 
 export const readingList: ReadingItem[] = [
   {
-    title: 'The Waves',
-    author: 'Virginia Woolf',
-    note: 'Interested in language and structure.',
+    title: 'Looking for Alaska',
+    author: 'John Green',
+    note: 'A book about love, loss, and closure.',
   },
   {
-    title: 'Pale Fire',
-    author: 'Vladimir Nabokov',
-    note: 'Useful for layered narration and difficult vocabulary.',
+    title: 'Notes from Underground',
+    author: 'Fyodor Dostoevsky',
+    note: 'A passionate, obsessive, and self-contradictory narrative.',
   },
   {
-    title: 'Invisible Cities',
-    author: 'Italo Calvino',
-    note: 'Aesthetic and structural inspiration.',
+    title: 'Frankenstein',
+    author: 'Mary Shelley',
+    note: 'A gothic horror and tragic story.',
+  },
+  {
+    title: 'The Way of Kings',
+    author: 'Brandon Sanderson',
+    note: 'A captivating and epic world-building book series.',
+  },
+  {
+    title: 'Dune',
+    author: 'Frank Herbert',
+    note: 'An epic science fiction novel on the desert planet Arrakis.',
   },
 ]
 
 export const resumeItems: ResumeItem[] = [
+//   {
+//     type: 'resume-link',
+//     title: 'View Resume',
+//     link: '#',
+//   },
   {
-    type: 'resume-link',
-    title: 'View Resume',
-    link: '#',
+    company: 'Bridging Tech',
+    title: 'Software Developer Intern',
+    subtitle: 'Designed quiz modules using React and TypeScript and animated progress tracking. \
+              Modeled schema to store user quiz attempts and completion state, ensuring persistent \
+              progress across sessions.',
   },
   {
-    type: 'course',
-    title: 'Algorithms',
-    subtitle: 'Core CS coursework',
+    company: 'Harvard University',
+    title: 'Teaching Assistant',
+    subtitle: 'Led daily discussion sections and held office hours in object-oriented design and algorithmic \
+              complexity in Java.',
   },
   {
-    type: 'course',
-    title: 'Distributed Systems',
-    subtitle: 'Systems and coordination',
+    company: 'Boston University',
+    title: 'Teaching/Course Assistant',
+    subtitle: 'Led weekly discussion sections and held office hours in recursion and problem solving in Python.',
   },
   {
-    type: 'course',
-    title: 'Abstract Algebra',
-    subtitle: 'Proof-based mathematics',
+    company: 'Boston University',
+    title: 'Algorithms Grader',
+    subtitle: 'Reviewed and graded algorithmic submissions throughout the semester, including proof correctness and asymptotic time/space complexity.',
   },
   {
-    type: 'experience',
-    title: 'Course Assistant',
-    subtitle: 'CS Department',
+    company: 'course',
+    title: 'Distributed/Database Systems',
+    subtitle: 'Distributed computing and concurrency control.',
+  },
+  {
+    company: 'course',
+    title: 'Advanced Probability and Statistics',
+    subtitle: 'Proof-based mathematics.',
+  },
+  {
+    company: 'course',
+    title: 'Computer Systems',
+    subtitle: 'Hardware fundamentals and systems programming in C.',
   },
 ]
 
 export const danceVideos: DanceVideoItem[] = [
   {
-    title: 'Contemporary Performance Reel',
-    description: 'A curated selection of recent choreography clips.',
-    link: '#',
-  },
-  {
-    title: 'Studio Practice Clip',
-    description: 'Short-form technical and rehearsal footage.',
-    link: '#',
+    title: 'Contemporary Dance Video',
+    description: 'A video of a contemporary dance combo class I taught.',
+    link: 'https://www.youtube.com/watch?v=KrrvnqHUYGM&t',
   },
   {
     title: 'Performance Excerpt',
-    description: 'Stage footage from a live performance.',
+    description: 'A piece I choreographed for BU Edge Dance Club\'s annual show.',
     link: '#',
   },
 ]
