@@ -4,7 +4,6 @@ import RoomScene from './scene/RoomScene'
 import CameraRig from './scene/CameraRig'
 import Overlay from './ui/Overlay'
 import InstructionHint from './ui/InstructionHint'
-import SettingsBar from './ui/SettingsBar'
 import type { WeatherMode } from './scene/WindowScene'
 
 export type ActiveSection =
@@ -31,7 +30,6 @@ export default function App() {
         <RoomScene onSectionSelect={setActiveSection} weather={weather} onWeatherChange={handleWeatherChange} />
       </Canvas>
 
-      <SettingsBar weather={weather} onWeatherChange={setWeather} />
       <InstructionHint />
 
       <Overlay

@@ -140,7 +140,7 @@ function Stars() {
       {positions.map((pos, i) => (
         <mesh key={i} position={pos}>
           <circleGeometry args={[0.015 + Math.random() * 0.01, 6]} />
-          <meshBasicMaterial color="#ffffff" />
+          <meshBasicMaterial color="#ebd67c" />
         </mesh>
       ))}
     </>
@@ -154,7 +154,7 @@ export default function WindowScene({ weather, onWeatherChange }: WindowScenePro
         position={[0, 0, 0]}
         size={[WINDOW_W, WINDOW_H, 0.05]}
         baseColor={SKY_COLORS[weather]}
-        hoverColor="#e0e0e0"
+        hoverColor="#9c9b96"
         onClick={() => {
           if (onWeatherChange) {
             const modes: WeatherMode[] = ['clear', 'rain', 'snow', 'sunset', 'night']
