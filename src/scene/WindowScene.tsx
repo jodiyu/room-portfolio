@@ -27,29 +27,45 @@ function RainParticles() {
   const dummy = useMemo(() => new THREE.Object3D(), [])
 
   const offsets = useMemo(() => {
-    const arr = new Float32Array(PARTICLE_COUNT * 3) 
+    const arr = new Float32Array(PARTICLE_COUNT * 5) 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * WINDOW_W
-      arr[i * 3 + 1] = (Math.random() - 0.5) * WINDOW_H
-      arr[i * 3 + 2] = 0.03
+      arr[i * 5] = (Math.random() - 0.5) * WINDOW_W // x coord
+      arr[i * 5 + 1] = (Math.random() - 0.5) * WINDOW_H // y coord
+      arr[i * 5 + 2] = 0.03 // z coord
+      arr[i * 5 + 3] = 2.5 + Math.random() * 1.5 // speed
+      arr[i * 5 + 4] = (Math.random() - 0.5) * 0.2 // drift
     }
     return arr
   }, [])
 
   useFrame((_, delta) => {
     if (!meshRef.current) return
-    const speed = 3.0
+
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      offsets[i * 3 + 1] -= speed * delta
-      if (offsets[i * 3 + 1] < -WINDOW_H / 2) {
-        offsets[i * 3 + 1] = WINDOW_H / 2
-        offsets[i * 3] = (Math.random() - 0.5) * WINDOW_W
+      const speed = offsets[i * 5 + 3]
+      const drift = offsets[i * 5 + 4]
+
+      offsets[i * 5 + 1] -= speed * delta
+      offsets[i * 5] += drift * delta
+
+      if (offsets[i * 5 + 1] < -WINDOW_H / 2) { // If the particle exits the window frame
+        offsets[i * 5 + 1] = WINDOW_H / 2 // Particle appears at the top of the frame
+        offsets[i * 5] = (Math.random() - 0.5) * WINDOW_W
+
+        offsets[i * 5 + 3] = 2.5 + Math.random() * 1.5
+        offsets[i * 5 + 4] = (Math.random() - 0.5) * 0.2
       }
-      dummy.position.set(offsets[i * 3], offsets[i * 3 + 1], offsets[i * 3 + 2])
-      dummy.scale.set(1, 1, 1)
+
+      dummy.position.set(
+        offsets[i * 5],
+        offsets[i * 5 + 1],
+        offsets[i * 5 + 2]
+      )
+
       dummy.updateMatrix()
       meshRef.current.setMatrixAt(i, dummy.matrix)
     }
+
     meshRef.current.instanceMatrix.needsUpdate = true
   })
 
