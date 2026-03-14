@@ -24,6 +24,10 @@ export default function App() {
   const [weather, setWeather] = useState<WeatherMode>('clear')
   const [fadeOpacity, setFadeOpacity] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [darkMode, setDarkMode] = useState(false)
+  const handleToggleDarkMode = () => {
+    setDarkMode((prev) => !prev)
+  }
 
   const handleWeatherChange = (next: WeatherMode) => {
     setWeather(next)
@@ -61,6 +65,8 @@ export default function App() {
               onSectionSelect={setActiveSection}
               weather={weather}
               onWeatherChange={handleWeatherChange}
+              darkMode={darkMode}
+              onToggleDarkMode={handleToggleDarkMode}
             />
           </>
         )}

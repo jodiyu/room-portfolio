@@ -2,10 +2,14 @@ import InteractiveBox from './InteractiveBox'
 
 type RoomProps = {
   onSpeechesClick: () => void
+  darkMode: boolean
+  onToggleDarkMode: () => void
 }
 
 export default function RoomProps({
-  onSpeechesClick
+  onSpeechesClick,
+  darkMode,
+  onToggleDarkMode
 }: RoomProps) {
   return (
     <>
@@ -26,11 +30,15 @@ export default function RoomProps({
           <boxGeometry args={[1.4, 0.2, 0.6]} />
           <meshStandardMaterial color="#e8e8e8" />
         </mesh>
-        {/* Blanket */}
-        <mesh position={[0, 0.62, 1]}>
-          <boxGeometry args={[1.9, 0.08, 4.2]} />
-          <meshStandardMaterial color="#4a6fa5" />
-        </mesh>
+        {/* Blanket (toggle dark mode) */}
+        <InteractiveBox
+          position={[0, 0.62, 1]}
+          size={[1.9, 0.08, 4.2]}
+          baseColor={darkMode ? "#222233" : "#4a6fa5"}
+          hoverColor={darkMode ? "#333355" : "#6686b5"}
+          onClick={onToggleDarkMode}
+        />
+
         {/* Headboard */}
         <mesh position={[0, 0.8, -2]}>
           <boxGeometry args={[2.2, 0.9, 0.12]} />
