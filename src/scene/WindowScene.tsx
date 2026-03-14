@@ -32,7 +32,7 @@ function RainParticles() {
       arr[i * 5] = (Math.random() - 0.5) * WINDOW_W // x coord
       arr[i * 5 + 1] = (Math.random() - 0.5) * WINDOW_H // y coord
       arr[i * 5 + 2] = 0.03 // z coord
-      arr[i * 5 + 3] = 2.5 + Math.random() * 1.5 // speed
+      arr[i * 5 + 3] = 1.2 + Math.random() * 0.2 // speed
       arr[i * 5 + 4] = (Math.random() - 0.5) * 0.2 // drift
     }
     return arr
@@ -52,7 +52,7 @@ function RainParticles() {
         offsets[i * 5 + 1] = WINDOW_H / 2 // Particle appears at the top of the frame
         offsets[i * 5] = (Math.random() - 0.5) * WINDOW_W
 
-        offsets[i * 5 + 3] = 2.5 + Math.random() * 1.5
+        offsets[i * 5 + 3] = 1.2 + Math.random() * 0.5
         offsets[i * 5 + 4] = (Math.random() - 0.5) * 0.2
       }
 
@@ -147,6 +147,68 @@ function Stars() {
   )
 }
 
+function Clouds() {
+  const CLOUD_COUNT = 12
+  const meshRef = useRef<THREE.InstancedMesh>(null)
+  const dummy = useMemo(() => new THREE.Object3D(), [])
+
+  const offsets = useMemo(() => {
+    // x, y, z, drift, scaleX, scaleY
+    const arr = new Float32Array(CLOUD_COUNT * 6)
+
+    for (let i = 0; i < CLOUD_COUNT; i++) {
+      arr[i * 6] = (Math.random() - 0.5) * WINDOW_W
+      arr[i * 6 + 1] = (Math.random() - 0.5) * WINDOW_H * 0.7
+      arr[i * 6 + 2] = 0.03
+      arr[i * 6 + 3] = 0.08 + Math.random() * 0.12
+      arr[i * 6 + 4] = 0.25 + Math.random() * 0.35
+      arr[i * 6 + 5] = 0.12 + Math.random() * 0.15
+    }
+
+    return arr
+  }, [])
+
+  useFrame((_, delta) => {
+    if (!meshRef.current) return
+
+    for (let i = 0; i < CLOUD_COUNT; i++) {
+      offsets[i * 6] += offsets[i * 6 + 3] * delta
+
+      if (offsets[i * 6] > WINDOW_W / 2 - 0.2) {
+        offsets[i * 6] = -WINDOW_W / 2 + 0.2
+        offsets[i * 6 + 1] = (Math.random() - 0.5) * WINDOW_H * 0.7
+        offsets[i * 6 + 3] = 0.08 + Math.random() * 0.12
+        offsets[i * 6 + 4] = 0.25 + Math.random() * 0.35
+        offsets[i * 6 + 5] = 0.12 + Math.random() * 0.15
+      }
+
+      dummy.position.set(
+        offsets[i * 6],
+        offsets[i * 6 + 1],
+        offsets[i * 6 + 2]
+      )
+
+      dummy.scale.set(
+        offsets[i * 6 + 4],
+        offsets[i * 6 + 5],
+        1
+      )
+
+      dummy.updateMatrix()
+      meshRef.current.setMatrixAt(i, dummy.matrix)
+    }
+
+    meshRef.current.instanceMatrix.needsUpdate = true
+  })
+
+  return (
+    <instancedMesh ref={meshRef} args={[undefined, undefined, CLOUD_COUNT]}>
+      <planeGeometry args={[1, 1]} />
+      <meshBasicMaterial color="#ffffff" transparent opacity={0.35} />
+    </instancedMesh>
+  )
+}
+
 export default function WindowScene({ weather, onWeatherChange }: WindowSceneProps) {
   return (
     <>
@@ -165,6 +227,7 @@ export default function WindowScene({ weather, onWeatherChange }: WindowScenePro
         }}
       />
 
+      {weather === 'clear' && <Clouds />} 
       {weather === 'rain' && <RainParticles />}
       {weather === 'snow' && <SnowParticles />}
       {weather === 'night' && <Stars />}

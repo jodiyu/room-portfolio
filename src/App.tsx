@@ -89,7 +89,7 @@ export default function App() {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundColor: 'white',
+          backgroundColor: 'black',
           opacity: fadeOpacity,
           pointerEvents: 'none',
           transition: 'opacity 500ms ease-in-out',
