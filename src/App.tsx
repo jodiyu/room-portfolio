@@ -19,11 +19,16 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<ActiveSection>(null)
   const [weather, setWeather] = useState<WeatherMode>('clear')
 
+  // Handler to cycle weather modes
+  const handleWeatherChange = (next: WeatherMode) => {
+    setWeather(next)
+  }
+
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <Canvas camera={{ position: [0, 1.6, 5], fov: 60 }}>
         <CameraRig isOverlayOpen={activeSection !== null} />
-        <RoomScene onSectionSelect={setActiveSection} weather={weather} />
+        <RoomScene onSectionSelect={setActiveSection} weather={weather} onWeatherChange={handleWeatherChange} />
       </Canvas>
 
       <SettingsBar weather={weather} onWeatherChange={setWeather} />

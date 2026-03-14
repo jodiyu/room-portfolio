@@ -9,9 +9,10 @@ import WallDecor from './WallDecor'
 type RoomSceneProps = {
   onSectionSelect: (section: Exclude<ActiveSection, null>) => void
   weather: WeatherMode
+  onWeatherChange: (mode: WeatherMode) => void
 }
 
-export default function RoomScene({ onSectionSelect, weather }: RoomSceneProps) {
+export default function RoomScene({ onSectionSelect, weather, onWeatherChange }: RoomSceneProps) {
   return (
     <>
       <ambientLight intensity={0.8} />
@@ -29,6 +30,7 @@ export default function RoomScene({ onSectionSelect, weather }: RoomSceneProps) 
         onResumeClick={() => onSectionSelect('resume')} 
         onDanceVideosClick={() => onSectionSelect('dance-videos')}
         weather={weather}
+        onWeatherChange={onWeatherChange}
       />
 
       <RoomProps 

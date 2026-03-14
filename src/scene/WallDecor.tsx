@@ -9,12 +9,14 @@ type WallDecorProps = {
   onResumeClick: () => void
   onDanceVideosClick: () => void
   weather: WeatherMode
+  onWeatherChange: (mode: WeatherMode) => void
 }
 
 export default function WallDecor({
   onResumeClick,
   onDanceVideosClick,
   weather,
+  onWeatherChange,
 }: WallDecorProps) {
   const dancerTexture = useLoader(TextureLoader, dancerImg)
 
@@ -78,7 +80,7 @@ export default function WallDecor({
 
       {/* Left wall window */}
       <group position={[-5.95, 1, -3]} rotation={[0, Math.PI / 2, 0]}>
-        <WindowScene weather={weather} />
+        <WindowScene weather={weather} onWeatherChange={onWeatherChange} />
         {/* Outer frame - top */}
         <mesh position={[0, 0.95, 0.01]}>
           <boxGeometry args={[3, 0.1, 0.06]} />
@@ -108,7 +110,7 @@ export default function WallDecor({
 
       {/* Left wall window */}
       <group position={[-5.95, 1, 3]} rotation={[0, Math.PI / 2, 0]}>
-        <WindowScene weather={weather} />
+        <WindowScene weather={weather} onWeatherChange={onWeatherChange} />
         {/* Outer frame - top */}
         <mesh position={[0, 0.95, 0.01]}>
           <boxGeometry args={[3, 0.1, 0.06]} />

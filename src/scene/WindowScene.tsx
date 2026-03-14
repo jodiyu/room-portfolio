@@ -1,11 +1,13 @@
 import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import InteractiveBox from './InteractiveBox'
 
 export type WeatherMode = 'clear' | 'rain' | 'snow' | 'sunset' | 'night'
 
 type WindowSceneProps = {
   weather: WeatherMode
+  onWeatherChange?: (mode: WeatherMode) => void
 }
 
 const SKY_COLORS: Record<WeatherMode, string> = {
@@ -25,11 +27,11 @@ function RainParticles() {
   const dummy = useMemo(() => new THREE.Object3D(), [])
 
   const offsets = useMemo(() => {
-    const arr = new Float32Array(PARTICLE_COUNT)
+    const arr = new Float32Array(PARTICLE_COUNT * 3) 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       arr[i * 3] = (Math.random() - 0.5) * WINDOW_W
       arr[i * 3 + 1] = (Math.random() - 0.5) * WINDOW_H
-      arr[i * 3 + 2] = 0.01
+      arr[i * 3 + 2] = 0.03
     }
     return arr
   }, [])
@@ -111,7 +113,7 @@ function Stars() {
       pts.push([
         (Math.random() - 0.5) * WINDOW_W * 0.9,
         (Math.random() - 0.5) * WINDOW_H * 0.9,
-        0.01,
+        0.03,
       ])
     }
     return pts
@@ -129,13 +131,23 @@ function Stars() {
   )
 }
 
-export default function WindowScene({ weather }: WindowSceneProps) {
+export default function WindowScene({ weather, onWeatherChange }: WindowSceneProps) {
   return (
     <>
-      <mesh position={[0, 0, 0]}>
-        <planeGeometry args={[WINDOW_W, WINDOW_H]} />
-        <meshBasicMaterial color={SKY_COLORS[weather]} />
-      </mesh>
+      <InteractiveBox
+        position={[0, 0, 0]}
+        size={[WINDOW_W, WINDOW_H, 0.05]}
+        baseColor={SKY_COLORS[weather]}
+        hoverColor="#e0e0e0"
+        onClick={() => {
+          if (onWeatherChange) {
+            const modes: WeatherMode[] = ['clear', 'rain', 'snow', 'sunset', 'night']
+            const idx = modes.indexOf(weather)
+            const next = modes[(idx + 1) % modes.length]
+            onWeatherChange(next)
+          }
+        }}
+      />
 
       {weather === 'rain' && <RainParticles />}
       {weather === 'snow' && <SnowParticles />}
@@ -143,7 +155,7 @@ export default function WindowScene({ weather }: WindowSceneProps) {
 
       {/* Sunset glow band */}
       {weather === 'sunset' && (
-        <mesh position={[0, -0.4, 0.01]}>
+        <mesh position={[0, -0.4, 0.03]}>
           <planeGeometry args={[WINDOW_W, 0.6]} />
           <meshBasicMaterial color="#f5c76e" transparent opacity={0.6} />
         </mesh>
