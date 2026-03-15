@@ -1,3 +1,5 @@
+import InteractiveBox from './InteractiveBox'
+
 export default function RoomShell() {
   return (
     <>
@@ -38,10 +40,14 @@ export default function RoomShell() {
       </mesh>
 
       {/* Door */}
-      <mesh position={[0, 0, 5.95]} rotation={[0, Math.PI, 0]}>
-        <planeGeometry args={[1.8, 3.6]} />
-        <meshStandardMaterial color="#5a3a28" />
-      </mesh>
+      <InteractiveBox 
+        position={[0, 0, 5.95]} 
+        size={[1.8, 3.6,0]}
+        rotation={[0, Math.PI, 0]}
+        baseColor="#5a3a28"
+        hoverColor="#724f39"
+        onClick= {()=>console.log("click")}
+      />
     </>
   )
 }

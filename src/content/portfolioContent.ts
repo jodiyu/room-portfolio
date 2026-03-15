@@ -61,31 +61,6 @@ export const projects: ProjectItem[] = [
 ]
 
 export const readingList: ReadingItem[] = [
-  // {
-  //   title: 'Looking for Alaska',
-  //   author: 'John Green',
-  //   note: 'A book about love, loss, and closure.',
-  // },
-  // {
-  //   title: 'Notes from Underground',
-  //   author: 'Fyodor Dostoevsky',
-  //   note: 'A passionate, obsessive, and self-contradictory narrative.',
-  // },
-  // {
-  //   title: 'Frankenstein',
-  //   author: 'Mary Shelley',
-  //   note: 'A gothic horror and tragic story.',
-  // },
-  // {
-  //   title: 'The Way of Kings',
-  //   author: 'Brandon Sanderson',
-  //   note: 'A captivating and epic world-building book series.',
-  // },
-  // {
-  //   title: 'Dune',
-  //   author: 'Frank Herbert',
-  //   note: 'An epic science fiction novel on the desert planet Arrakis.',
-  // },
   {
     title: 'Random Winds',
     author: 'Belva Plain',
@@ -100,11 +75,6 @@ export const readingList: ReadingItem[] = [
     title: 'A Clash of Kings',
     author: 'George R. R. Martin',
     note: 'The second book of Game of Thrones.',
-  },
-  {
-    title: 'Heir of Fire',
-    author: 'Sarah J. Maas',
-    note: 'The third book of Throne of Glass.',
   },
 ]
 

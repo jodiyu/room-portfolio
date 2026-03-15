@@ -36,8 +36,7 @@ export default function WelcomeOverlay() {
         </p>
 
         <p style={{ marginBottom: '1.5rem', lineHeight: 1.6 }}>
-          Hover over the door in front of you to open it, then click to enter
-          the room.
+          Click on the door to enter the room!
         </p>
 
       </div>
