@@ -8,8 +8,7 @@ The goal of the project is to experiment with **3D interfaces** while maintainin
 
 ## Demo
 
-Live site:  
-www.jodiyu.com
+![3D Portfolio Demo](assets/demo.gif)
 
 ---
 
