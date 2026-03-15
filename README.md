@@ -8,7 +8,9 @@ The goal of the project is to experiment with **3D interfaces** while maintainin
 
 ## Demo
 
-![3D Portfolio Demo](assets/demo.gif)
+<p align="center">
+  <img src="src/assets/demo.gif" width="700">
+</p>
 
 ---
 
