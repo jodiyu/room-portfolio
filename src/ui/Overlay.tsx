@@ -157,7 +157,7 @@ function renderContent(activeSection: Exclude<ActiveSection, null>) {
             <strong>Tech:</strong> {project.tech.join(', ')}
           </p>
           {project.link && (
-            <a href={project.link} style={linkStyle}>
+            <a href={project.link} style={linkStyle} target="_blank" rel="noopener noreferrer">
               Open project
             </a>
           )}
@@ -184,7 +184,7 @@ function renderContent(activeSection: Exclude<ActiveSection, null>) {
           </p>
           {item.subtitle && <p style={bodyTextStyle}>{item.subtitle}</p>}
           {item.link && (
-            <a href={item.link} style={linkStyle}>
+            <a href={item.link} style={linkStyle} target="_blank" rel="noopener noreferrer">
               Open
             </a>
           )}
@@ -197,7 +197,7 @@ function renderContent(activeSection: Exclude<ActiveSection, null>) {
           <h3 style={itemTitleStyle}>{video.title}</h3>
           {video.description && <p style={bodyTextStyle}>{video.description}</p>}
           {video.link && (
-            <a href={video.link} style={linkStyle}>
+            <a href={video.link} style={linkStyle} target="_blank" rel="noopener noreferrer">
               Watch
             </a>
           )}
@@ -210,7 +210,7 @@ function renderContent(activeSection: Exclude<ActiveSection, null>) {
           <h3 style={itemTitleStyle}>{video.title}</h3>
           {video.description && <p style={bodyTextStyle}>{video.description}</p>}
           {video.link && (
-            <a href={video.link} style={linkStyle}>
+            <a href={video.link} style={linkStyle} target="_blank" rel="noopener noreferrer">
               Watch
             </a>
           )}
