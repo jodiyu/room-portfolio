@@ -8,8 +8,9 @@ The goal of the project is to experiment with **3D interfaces** while maintainin
 
 ## Demo
 
-Live site:  
-www.jodiyu.com
+<p align="center">
+  <img src="src/assets/demo.gif" width="700">
+</p>
 
 ---
 
